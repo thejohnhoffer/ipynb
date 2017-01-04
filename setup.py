@@ -8,4 +8,5 @@ setup(name='nbook',
             author_email='john@hoff.in',
             license='MIT',
             packages=['nbook'],
+            install_requires=['nbformat'],
             zip_safe=False)

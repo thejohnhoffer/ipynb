@@ -1,0 +1,7 @@
+nbook/__init__.py
+nbook.egg-info/PKG-INFO
+nbook.egg-info/SOURCES.txt
+nbook.egg-info/dependency_links.txt
+nbook.egg-info/not-zip-safe
+nbook.egg-info/requires.txt
+nbook.egg-info/top_level.txt
