@@ -1,11 +1,11 @@
 from setuptools import setup
 
-setup(name='ipynb',
+setup(name='nbook',
             version='0.1',
-            description='Import ipynb files to python',
+            description='Import nbook files to python',
             url='http://github.com/thejohnhoffer/ipynb',
             author='John Hoffer (thejohnhoffer)',
             author_email='john@hoff.in',
             license='MIT',
-            packages=['ipynb'],
+            packages=['nbook'],
             zip_safe=False)
