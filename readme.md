@@ -57,7 +57,7 @@ In [8]: # %load 2
       :                                             
 ```
 
-You can edit the input and execute (this will not affect the original file)
+You can edit the input and execute (this will not affect the original file).
 
 If you then run `%load 3`, the third cell will load as muliline input.
 
