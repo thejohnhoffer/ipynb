@@ -52,7 +52,7 @@ If you hit `n` at `In [2]` for a file of 8 code cells, you will see:
 Say y/n to running: n                               
 You can load lines 1-8                            
                                                     
-In [8]: # %load 2                                   
+In [9]: # %load 2                                   
       : DATA = 'this is the second code cell'
       :                                             
 ```
