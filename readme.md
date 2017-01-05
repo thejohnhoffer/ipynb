@@ -1,5 +1,14 @@
 # Interactive Module to import from ipython notebooks
 
+This module lets you `import` from any .ipynb file.
+
+- In order, you'll be asked whether you want to run each cell.
+- If you run each cell or decide not to run a cell:
+    - No futher cells are executed.
+    - All cells can be found in your history, starting from 1.
+    - The first cell you didn't run is immediately editable.
+    - You can load and edit any of the cells from history.
+
 ## Origin
 
 This was started as an import module by [Adrian Price-Whelan][0], concatenated by [Robert Clewley][1], updated by [Doug Callaway][2], and finally recycled for an interactive console by me. 
