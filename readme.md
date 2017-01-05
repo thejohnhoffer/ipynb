@@ -26,10 +26,8 @@ pip install -e ipynb
 
 # Usage
 
-## Importing
-
-On an IPython shell,
-For an example.ipynb:
+- On an IPython shell
+    - example) example.ipynb:
 
 ```
 
@@ -65,5 +63,5 @@ In [9]: # %load 2
 ```
 
 - You can edit the input and execute (this will not affect the original file).
-    - example) you run `%load 3`, to load the third cell as muliline input.
+    - example) you run `%load 3` to load the third cell as muliline input.
     - example) you run `%load 3-8` to load the rest of the ipynb code at once.
