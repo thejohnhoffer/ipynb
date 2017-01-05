@@ -51,11 +51,11 @@ Say y/n to running:
 
 ```
 
-As you hit `y`, prompts will continue for each cell.
+- As you hit `y`, prompts will continue for each cell.
 
-When you hit `n`, the last cell prompted will load as multiline input.
+- If you hit `n`, the last cell prompted will load as multiline input.
 
-If you hit `n` at `In [2]` for a file of 8 code cells, you will see:
+    - example) you hit `n` at `In [2]` for a file of 8 code cells:
 
 ```
 Say y/n to running: n                               
@@ -66,8 +66,8 @@ In [9]: # %load 2
       :                                             
 ```
 
-You can edit the input and execute (this will not affect the original file).
+- You can edit the input and execute (this will not affect the original file).
 
-If you then run `%load 3`, the third cell will load as muliline input.
+    - example) you run `%load 3`, to load the third cell as muliline input.
 
-Or, you can run `%load 3-8` to load the rest of the ipynb code at once.
+    - example) you run `%load 3-8` to load the rest of the ipynb code at once.
