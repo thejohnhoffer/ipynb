@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='nbook',
-            version='0.1',
+            version='0.2',
             description='Import nbook files to python',
             url='http://github.com/thejohnhoffer/ipynb',
             author='John Hoffer (thejohnhoffer)',

@@ -3,8 +3,11 @@ Module directly collated from
 http://jupyter-notebook.readthedocs.io/en/latest/examples/Notebook/Importing%20Notebooks.html
 """
 import io, os, sys, types
-from IPython import get_ipython
 from nbformat import read
+from pygments import highlight
+from IPython import get_ipython
+from pygments.lexers import PythonLexer
+from pygments.formatters import TerminalFormatter
 from IPython.core.interactiveshell import InteractiveShell
 
 def find_notebook(fullname, path=None):
@@ -39,10 +42,12 @@ class NotebookLoader(object):
 
         print ("importing Jupyter notebook from %s" % path)
 
+        formatter = TerminalFormatter()
+        lexer = PythonLexer()
+
         # load the notebook object
         with io.open(path, 'r', encoding='utf-8') as f:
             nb = read(f, 4)
-
 
         # create the module and add it to sys.modules
         # if name in sys.modules:
@@ -74,16 +79,19 @@ class NotebookLoader(object):
                         self.shell.execution_count += 1
                         continue
 
-                    # ask whether to execute the code
-                    preface = '\nIn ['+str(self.shell.execution_count+1)+']: '
-                    more = self.shell.ask_yes_no(preface+code+'\ncontinue?')
+                    # ask to execute the code
+                    runcount = self.shell.execution_count
+                    hcode = highlight(code,lexer,formatter)
+                    preface = '\nIn ['+str(runcount+1)+']: '
+                    more = self.shell.ask_yes_no(preface+hcode+'\nSay y/n to running:')
                     if more:
                         # run the code in the module
                         self.shell.run_cell(code, store_history=True)
                     else:
                         # open the code in the module
-                        self.shell.set_next_input(code)
-                        hsm.store_inputs(self.shell.execution_count, code)
+                        preface = '# %load '+str(runcount+1)+'\n'
+                        self.shell.set_next_input(preface+code)
+                        hsm.store_inputs(runcount, code)
                         self.shell.execution_count += 1
                         broken = True
             print('lines 1-'+str(self.shell.execution_count)+' can %load')
@@ -110,39 +118,3 @@ class NotebookFinder(object):
             self.loaders[key] = NotebookLoader(path)
         return self.loaders[key]
 
-## Aside: displaying notebooks
-from pygments import highlight
-from pygments.lexers import PythonLexer
-from pygments.formatters import HtmlFormatter
-
-from IPython.display import display, HTML
-
-formatter = HtmlFormatter()
-lexer = PythonLexer()
-
-# publish the CSS for pygments highlighting
-display(HTML("""
-<style type='text/css'>
-%s
-</style>
-""" % formatter.get_style_defs()
-))
-
-def show_notebook(fname):
-    """display a short summary of the cells of a notebook"""
-    with io.open(fname, 'r', encoding='utf-8') as f:
-        nb = read(f, 4)
-    html = []
-    for cell in nb.cells:
-        html.append("<h4>%s cell</h4>" % cell.cell_type)
-        if cell.cell_type == 'code':
-            html.append(highlight(cell.source, lexer, formatter))
-        else:
-            html.append("<pre>%s</pre>" % cell.source)
-    display(HTML('\n'.join(html)))
-
-# Example
-#show_notebook(os.path.join("nbpackage", "mynotebook.ipynb"))
-
-# Now we register the NotebookFinder with sys.meta_path
-# sys.meta_path.append(NotebookFinder())

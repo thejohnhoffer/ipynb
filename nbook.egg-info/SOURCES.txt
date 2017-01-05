@@ -1,4 +1,5 @@
 nbook/__init__.py
+nbook/highlight.py
 nbook/nbook.py
 nbook/nbooklite.py
 nbook.egg-info/PKG-INFO
