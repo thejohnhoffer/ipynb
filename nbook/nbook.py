@@ -65,19 +65,18 @@ class NotebookLoader(object):
                 if cell.cell_type == 'code':
                     # transform the input to executable Python
                     code = self.shell.input_transformer_manager.transform_cell(cell.source)
-                    # run the code in the module
-                    # exec(code, mod.__dict__)
-                    # load the code in the module
-                    with open('tmp.py','w') as f:
-                        f.write(code)
-                    #self.shell.run_line_magic('load','tmp.py')
-                    self.shell.run_cell(code, store_history=True)
-                    #last = list(hsm.get_range(0,0))[-1]
-                    #print self.shell.execution_count,last
-                    hsm.store_inputs(self.shell.execution_count, code)
-                    self.shell.execution_count += 1
-                    #self.shell.set_next_input(code)
-                    #self.shell.ask_yes_no(self.shell,'hi')
+                    # ask whether to execute the code
+                    preface = '\nIn ['+str(self.shell.execution_count+1)+']: '
+                    more = self.shell.ask_yes_no(preface+code+'\ncontinue?')
+                    if more:
+                        # run the code in the module
+                        self.shell.run_cell(code, store_history=True)
+                        # hsm.store_inputs(self.shell.execution_count, code)
+                    else:
+                        # open the code in the module
+                        self.shell.set_next_input(code)
+                        break
+
         finally:
             self.shell.user_ns = save_user_ns
         return mod
