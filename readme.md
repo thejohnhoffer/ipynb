@@ -29,6 +29,7 @@ from example import *
 ## Interaction
 
 After an `import *`, you will be prompted like so:
+
 ```
 
 In [1]: print('this is an example')

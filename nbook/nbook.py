@@ -94,7 +94,7 @@ class NotebookLoader(object):
                         hsm.store_inputs(runcount, code)
                         self.shell.execution_count += 1
                         broken = True
-            print('lines 1-'+str(self.shell.execution_count)+' can %load')
+            print('You can load lines 1-'+str(self.shell.execution_count))
         finally:
             self.shell.user_ns = save_user_ns
         return mod
