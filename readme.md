@@ -3,7 +3,7 @@
 This module lets you `import` cell-by-cell from any .ipynb file.
 
 - You'll be asked per cell whether you want to run it.
-- If you run each cell or decide not to run a cell:
+- If you run all cells or decide not to run a cell:
     - No futher cells are executed.
     - But every cell in the file is now in your history, starting from 1.
     - The first cell you didn't run is immediately editable.
