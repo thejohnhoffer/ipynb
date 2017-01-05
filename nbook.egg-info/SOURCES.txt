@@ -1,7 +1,6 @@
 nbook/__init__.py
 nbook/highlight.py
 nbook/nbook.py
-nbook/nbooklite.py
 nbook.egg-info/PKG-INFO
 nbook.egg-info/SOURCES.txt
 nbook.egg-info/dependency_links.txt
