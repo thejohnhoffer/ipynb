@@ -46,7 +46,7 @@ As you hit `y`, prompts will continue for each cell.
 
 When you hit `n`, the last cell prompted will load as multiline input.
 
-If you hit `n` at `In[2]` for a file of 8 code cells, you will see:
+If you hit `n` at `In [2]` for a file of 8 code cells, you will see:
 
 ```
 Say y/n to running: n                               
