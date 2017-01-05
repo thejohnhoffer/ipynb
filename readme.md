@@ -1,9 +1,12 @@
-# Module to import from ipython notebooks
+# Interactive Module to import from ipython notebooks
 
 ## Origin
 
-This module is based on the work of Adrian Price-Whelan from his notebook
-http://jupyter-notebook.readthedocs.io/en/latest/examples/Notebook/Importing%20Notebooks.html
+This was started as an import module by [Adrian Price-Whelan][0], concatenated by [Robert Clewley][1], updated by [Doug Callaway][2], and finally recycled for an interactive console by me. 
+
+[0]: http://jupyter-notebook.readthedocs.io/en/latest/examples/Notebook/Importing%20Notebooks.html
+[1]: https://gist.github.com/robclewley/75b7719119892b99d73b
+[2]: https://gist.github.com/DCAL12/1a872bd63bedfb7b12612c8a7ec0f52e
 
 ## Installation
 
